@@ -19,4 +19,12 @@ class products(Base):
     discontinued = Column(Integer)
     minimum_reorder_quantity = Column(Integer)
     category = Column(String)
-    attachments = Column(String)  # Si los adjuntos son archivos, podrías necesitar manejarlos de manera diferente
+    attachments = Column(String)
+
+class Orders(Base):
+    __tablename__ = 'Orders'
+
+    id = Column(Integer, primary_key=True)
+    ship_city = Column(String)
+    ship_state_province	= Column(String)
+    city_count = Column(Integer)
