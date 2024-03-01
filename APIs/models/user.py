@@ -2,6 +2,23 @@ from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
+from pydantic import BaseModel
+
+class ProductCreate(BaseModel):
+    supplier_ids: int
+    product_code: str
+    product_name: str
+    description: str
+    standard_cost: float
+    list_price: float
+    reorder_level: int
+    target_level: int
+    quantity_per_unit: str
+    discontinued: int
+    minimum_reorder_quantity: int
+    category: str
+    attachments: str
+
 
 class products(Base):
     __tablename__ = 'products'
@@ -20,6 +37,8 @@ class products(Base):
     minimum_reorder_quantity = Column(Integer)
     category = Column(String)
     attachments = Column(String)
+
+
 
 class Orders(Base):
     __tablename__ = 'Orders'
